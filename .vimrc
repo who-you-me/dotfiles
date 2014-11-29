@@ -10,7 +10,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 NeoBundle 'tomasr/molokai'
 NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'jmcantrell/vim-virtualenv'
 NeoBundle 'kchmck/vim-coffee-script'
 
 call neobundle#end()
@@ -28,12 +27,14 @@ set backspace=indent,eol,start
 set autoindent
 set smartindent
 set expandtab
-set tabstop=4 shiftwidth=4 softtabstop=0
+set tabstop=4 shiftwidth=4 softtabstop=4
 "set paste
 
 if has('autocmd')
     filetype indent on
     autocmd FileType html setlocal ts=2 sw=2
+    autocmd FileType ruby setlocal ts=2 sw=2
+    autocmd FileType lua  setlocal ts=2 sw=2
 endif
 
 " Apperance
