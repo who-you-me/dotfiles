@@ -10,6 +10,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 NeoBundle 'tomasr/molokai'
 NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'kchmck/vim-coffee-script'
 
 call neobundle#end()
