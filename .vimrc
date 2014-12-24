@@ -9,6 +9,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 NeoBundle 'tomasr/molokai'
+NeoBundle 'Shougo/neocomplete'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-fugitive'
@@ -21,6 +22,9 @@ call neobundle#end()
 filetype plugin indent on
 
 NeoBundleCheck
+
+" Enable neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 " Basic
 set nobackup
@@ -45,7 +49,7 @@ endif
 set showmatch
 set number
 set list
-set listchars=trail:-,eol:¬
+set listchars=tab:>-,trail:-,eol:¬
 set cursorline
 syntax enable
 set t_Co=256
@@ -66,4 +70,3 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-
