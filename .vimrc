@@ -8,8 +8,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'tomasr/molokai'
-NeoBundle 'Shougo/neocomplete'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-fugitive'
@@ -25,6 +25,10 @@ NeoBundleCheck
 
 " Enable neocomplete
 let g:neocomplete#enable_at_startup = 1
+
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
 
 " Basic
 set nobackup
