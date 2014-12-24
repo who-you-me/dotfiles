@@ -30,6 +30,11 @@ autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 
+" Nerdtree
+if !argc()
+    autocmd vimenter * NERDTree
+endif
+
 " Basic
 set nobackup
 set noswapfile
