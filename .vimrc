@@ -44,14 +44,12 @@ set backspace=indent,eol,start
 set autoindent
 set smartindent
 set expandtab
-set tabstop=4 shiftwidth=4 softtabstop=4
+set tabstop=2 shiftwidth=2 softtabstop=2
 "set paste
 
 if has('autocmd')
     filetype indent on
-    autocmd FileType html setlocal ts=2 sw=2
-    autocmd FileType ruby setlocal ts=2 sw=2
-    autocmd FileType lua  setlocal ts=2 sw=2
+    autocmd FileType python setlocal ts=4 sw=4 sts=4
 endif
 
 " Apperance
