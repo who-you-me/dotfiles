@@ -15,3 +15,4 @@
   linter: {}
   "japanese-wrap":
     characterWidth: {}
+  minimap: {}
