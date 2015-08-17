@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES=( .zshrc .vimrc )
+DOTFILES=( .zshrc .vimrc .atom )
 
 for file in ${DOTFILES[@]}
 do

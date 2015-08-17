@@ -1,0 +1,17 @@
+"*":
+  "exception-reporting":
+    userId: "be731577-5831-078d-1004-2f9f28b6f43d"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "bb0dc28005fb552094e26c57366afedcda6c2986"
+  core: {}
+  editor:
+    invisibles: {}
+    fontFamily: "Ricty Diminished"
+    softWrap: true
+    fontSize: 15
+  "vim-mode": {}
+  linter: {}
+  "japanese-wrap":
+    characterWidth: {}
