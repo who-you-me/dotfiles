@@ -5,14 +5,21 @@
     showOnStartup: false
   metrics:
     userId: "bb0dc28005fb552094e26c57366afedcda6c2986"
-  core: {}
+  core:
+    disabledPackages: [
+      "linter-pep8"
+      "linter-php"
+    ]
   editor:
     invisibles: {}
-    fontFamily: "Ricty Diminished"
+    fontFamily: "\"consolas\""
     softWrap: true
     fontSize: 15
-  "vim-mode": {}
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
   linter: {}
   "japanese-wrap":
     characterWidth: {}
   minimap: {}
+  "autocomplete-plus":
+    confirmCompletion: "enter"

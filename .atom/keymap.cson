@@ -25,6 +25,24 @@
 # https://github.com/bevry/cson#what-is-cson
 
 'body':
-  'cmd-left': 'pane:show-previous-item'
-  'cmd-right': 'pane:show-next-item'
-  ': w': 'core:save'
+  'ctrl-h': 'window:focus-pane-on-left'
+  'ctrl-j': 'window:focus-pane-below'
+  'ctrl-k': 'window:focus-pane-above'
+  'ctrl-l': 'window:focus-pane-on-right'
+  'ctrl-shift-t': 'tree-view:toggle'
+  'ctrl-0': 'tree-view:toggle-focus'
+'atom-workspace':
+  'g t': 'pane:show-next-item'
+'atom-workspace atom-text-editor':
+  'ctrl-l': 'unset!'
+'atom-workspace atom-text-editor:not([mini])':
+  'ctrl-j': 'unset!'
+'atom-text-editor.vim-mode':
+  'ctrl-c': 'unset!'
+'atom-text-editor.vim-mode.normal-mode':
+  'ctrl-t': 'unset!'
+'atom-text-editor.vim-mode:not(.insert-mode)':
+  'ctrl-f': 'unset!'
+'atom-text-editor.autocomplete-active':
+  'ctrl-p': 'core:move-up'
+  'ctrl-n': 'core:move-down'
