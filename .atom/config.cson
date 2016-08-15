@@ -1,25 +1,25 @@
 "*":
-  "exception-reporting":
-    userId: "be731577-5831-078d-1004-2f9f28b6f43d"
-  welcome:
-    showOnStartup: false
-  metrics:
-    userId: "bb0dc28005fb552094e26c57366afedcda6c2986"
+  "autocomplete-plus":
+    confirmCompletion: "enter"
   core:
     disabledPackages: [
-      "linter-pep8"
       "linter-php"
     ]
   editor:
-    invisibles: {}
     fontFamily: "\"consolas\""
-    softWrap: true
     fontSize: 15
-  "vim-mode":
-    useClipboardAsDefaultRegister: true
-  linter: {}
+    invisibles: {}
+    softWrap: true
+  "exception-reporting":
+    userId: "be731577-5831-078d-1004-2f9f28b6f43d"
   "japanese-wrap":
     characterWidth: {}
+  linter: {}
+  "linter-pep8": {}
+  metrics:
+    userId: "bb0dc28005fb552094e26c57366afedcda6c2986"
   minimap: {}
-  "autocomplete-plus":
-    confirmCompletion: "enter"
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
+  welcome:
+    showOnStartup: false

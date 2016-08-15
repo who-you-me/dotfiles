@@ -16,6 +16,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'derekwyatt/vim-scala'
 
 call neobundle#end()
 

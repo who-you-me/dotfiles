@@ -47,3 +47,14 @@ if [ -d "$HOME/google-cloud/sdk" ]; then
   source "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
 
+if [ -s "/usr/bin/javac" ]; then
+  JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+  export JAVA_HOME
+  PATH=$PATH:$JAVA_HOME/bin
+  export PATH
+fi
+
+if [ -s "/usr/local/src/scala/scala-2.10.4" ]; then
+  export SCALA_HOME=/usr/local/src/scala/scala-2.10.4
+  export PATH=$SCALA_HOME/bin:$PATH
+fi

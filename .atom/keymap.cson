@@ -31,8 +31,6 @@
   'ctrl-l': 'window:focus-pane-on-right'
   'ctrl-shift-t': 'tree-view:toggle'
   'ctrl-0': 'tree-view:toggle-focus'
-'atom-workspace':
-  'g t': 'pane:show-next-item'
 'atom-workspace atom-text-editor':
   'ctrl-l': 'unset!'
 'atom-workspace atom-text-editor:not([mini])':
