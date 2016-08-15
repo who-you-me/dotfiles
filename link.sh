@@ -1,9 +1,12 @@
-#!/bin/bash
+#!/bin/sh
 
 DOTFILES=( .zshrc .vimrc .atom )
 
 for file in ${DOTFILES[@]}
 do
-    ln -s $HOME/repos/dotfiles/$file $HOME/$file
+  if [ -L $HOME/$file ]; then
+    ln -sb $HOME/repos/dotfiles/$file $HOME/$file
+  else
+    ln -sb $HOME/repos/dotfiles/$file $HOME/$file
+  fi
 done
-
