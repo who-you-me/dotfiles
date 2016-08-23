@@ -3,7 +3,7 @@
 set -eu
 
 if ! type zsh >/dev/null 2>&1; then
-  apt-get install zsh
+  apt-get -y install zsh
 fi
 
 zsh install_prezto.sh
