@@ -8,7 +8,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
-NeoBundle 'Shougo/neocomplete.vim'
+if has('lua')
+  NeoBundle 'Shougo/neocomplete.vim'
+end
 NeoBundle 'tomasr/molokai'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'scrooloose/nerdtree'

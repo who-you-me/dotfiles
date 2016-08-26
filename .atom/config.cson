@@ -1,13 +1,10 @@
 "*":
   "autocomplete-plus":
     confirmCompletion: "enter"
-  core:
-    disabledPackages: [
-      "linter-php"
-    ]
+  core: {}
   editor:
     fontFamily: "\"consolas\""
-    fontSize: 15
+    fontSize: 12
     invisibles: {}
     softWrap: true
   "exception-reporting":
@@ -15,7 +12,10 @@
   "japanese-wrap":
     characterWidth: {}
   linter: {}
-  "linter-pep8": {}
+  "linter-pep8":
+    ignoreErrorCodes: [
+      "E501"
+    ]
   metrics:
     userId: "bb0dc28005fb552094e26c57366afedcda6c2986"
   minimap: {}
