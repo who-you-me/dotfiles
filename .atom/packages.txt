@@ -12,6 +12,7 @@ linter-ui-default@1.6.3
 minimap@4.29.0
 pretty-json@1.6.3
 regex-railroad-diagram@0.19.3
+language-stan@0.9.0
 sort-lines@0.14.0
 vim-mode@0.66.0
 

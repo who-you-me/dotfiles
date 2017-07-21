@@ -58,3 +58,5 @@ if [ -s "/usr/local/src/scala/scala-2.10.4" ]; then
   export SCALA_HOME=/usr/local/src/scala/scala-2.10.4
   export PATH=$SCALA_HOME/bin:$PATH
 fi
+
+alias gst='git status'
