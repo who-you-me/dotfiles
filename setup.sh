@@ -28,6 +28,15 @@ ln -snf $(which python3.9) /usr/local/bin/python
 ln -snf $(which pip3.9) /usr/local/bin/pip3
 ln -snf $(which pip3.9) /usr/local/bin/pip
 
+# Poetry
+if ! which poetry > /dev/null; then
+  echo 'Poetryをインストールします'
+  curl -sSL https://install.python-poetry.org | POETRY_HOME="$HOME/poetry" python3 -
+
+  mkdir -p ~/.zfunc
+  $HOME/poetry/bin/poetry completions zsh > ~/.zfunc/_poetry
+fi
+
 # Pythonのライブラリをインストール
 echo 'Pythonのライブラリをインストールします'
 ln -snf "$DOTFILES_REPO/requirements.txt" "$CONFIG_DIR/requirements.txt"

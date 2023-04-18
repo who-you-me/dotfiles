@@ -3,6 +3,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
 # direnv
@@ -12,6 +14,9 @@ eval "$(direnv hook zsh)"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# poetry
+export PATH="$HOME/poetry/bin:$PATH"
 
 # rbenv
 eval "$(rbenv init - zsh)"
