@@ -5,7 +5,7 @@ set -eu
 DOTFILES_REPO="$HOME/dotfiles"
 if [ ! -e "$DOTFILES_REPO" ]; then
   echo 'dotfilesリポジトリをcloneします'
-  git clone https://github.com/who-you-me/dotfiles.git "$DOTFILES_REPO"
+  git clone git@github.com:who-you-me/dotfiles.git "$DOTFILES_REPO"
 fi
 
 if ! which brew > /dev/null; then
@@ -27,6 +27,14 @@ ln -snf $(which python3.9) /usr/local/bin/python3
 ln -snf $(which python3.9) /usr/local/bin/python
 ln -snf $(which pip3.9) /usr/local/bin/pip3
 ln -snf $(which pip3.9) /usr/local/bin/pip
+
+# Pythonのライブラリをインストール
+echo 'Pythonのライブラリをインストールします'
+ln -snf "$DOTFILES_REPO/requirements.txt" "$CONFIG_DIR/requirements.txt"
+python3.9 -m pip install \
+  --upgrade \
+  --upgrade-strategy=eager \
+  -r "$CONFIG_DIR/requirements.txt"
 
 # Rust
 if ! which cargo > /dev/null; then

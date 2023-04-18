@@ -1,0 +1,14 @@
+pip
+
+ipython
+jupyterlab
+jupyterlab-vim
+
+pandas
+
+numpy
+scipy
+statsmodels
+
+matplotlib
+seaborn
