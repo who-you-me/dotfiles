@@ -8,11 +8,49 @@ if [ ! -e "$DOTFILES_REPO" ]; then
   git clone https://github.com/who-you-me/dotfiles.git "$DOTFILES_REPO"
 fi
 
-echo '設定ファイルへのシンボリックリンクを貼ります'
+if ! which brew > /dev/null; then
+  echo 'HomeBrewをインストールします'
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
 CONFIG_DIR="$HOME/.config"
 BACKUP_DIR="$CONFIG_DIR/backup"
 mkdir -p "$BACKUP_DIR"
+
+echo '必要なパッケージをインストールします'
+
+ln -snf "$DOTFILES_REPO/Brewfile" "$CONFIG_DIR/Brewfile"
+brew bundle --file "$CONFIG_DIR/Brewfile"
+
+# HomeBrewでインストールしたpython3.9を python3 や python に設定
+ln -snf $(which python3.9) /usr/local/bin/python3
+ln -snf $(which python3.9) /usr/local/bin/python
+ln -snf $(which pip3.9) /usr/local/bin/pip3
+ln -snf $(which pip3.9) /usr/local/bin/pip
+
+# Rust
+if ! which cargo > /dev/null; then
+  echo 'Rustをインストールします'
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+fi
+
+# Google Cloud SDK
+if ! which gcloud > /dev/null; then
+  echo 'Google Cloud SDKをインストールします'
+
+  curl -sSf -o "$HOME/google-cloud-sdk.tar.gz" \
+    https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-426.0.0-darwin-x86_64.tar.gz
+  tar -xzf "$HOME/google-cloud-sdk.tar.gz"
+  rm -f "$HOME/google-cloud-sdk.tar.gz"
+
+  sh "$HOME/google-cloud-sdk/install.sh" \
+    --usage-reporting false \
+    --command-completion false \
+    --path-update false \
+    --install-python false
+fi
+
+echo '設定ファイルへのシンボリックリンクを貼ります'
 
 # git
 if [ -e ~/.gitconfig ]; then
