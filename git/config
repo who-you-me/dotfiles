@@ -1,0 +1,11 @@
+[user]
+	name = Hisao Soyama
+	email = hisao.soyama@gmail.com
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[include]
+	path = ~/.config/git/config-company

@@ -1,25 +1,23 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-export PATH="/opt/bin:$PATH"
+autoload -U +X bashcompinit && bashcompinit
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# direnv
+if which direnv > /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
 
-# rbenv
-if [ -d "$HOME/.rbenv" ]; then
-  export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
-  eval "$(rbenv init -)"
+# kubectl
+if which kubectl > /dev/null; then
+  source <(kubectl completion zsh)
+fi
+
+# terraform
+if which terraform > /dev/null; then
+  complete -o nospace -C $(which terraform) terraform
 fi
 
 # pyenv
@@ -29,10 +27,18 @@ if [ -d "$HOME/.pyenv" ]; then
   eval "$(pyenv init -)"
 fi
 
-# nvm
-if [ -d "$HOME/.nvm" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# rbenv
+if [ -d "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+  eval "$(rbenv init -)"
+fi
+
+alias be="bundle exec"
+
+# nodenv
+if [ -d "$HOME/.nodenv" ]; then
+  export PATH="$HOME/.nodenv/versions/*/bin:$PATH"
+  eval "$(nodenv init -)"
 fi
 
 # golang
@@ -40,23 +46,19 @@ if [ -d "$HOME/go/bin" ]; then
   export PATH="$HOME/go/bin:$PATH"
 fi
 
-# google cloud sdk
-if [ -d "$HOME/google-cloud/sdk" ]; then
-  export CLOUDSDK_PYTHON="/usr/bin/python"
-  source "$HOME/google-cloud-sdk/path.zsh.inc"
-  source "$HOME/google-cloud-sdk/completion.zsh.inc"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then
+  . "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
 
-if [ -s "/usr/bin/javac" ]; then
-  JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
-  export JAVA_HOME
-  PATH=$PATH:$JAVA_HOME/bin
-  export PATH
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ];
+  then . "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
 
-if [ -s "/usr/local/src/scala/scala-2.10.4" ]; then
-  export SCALA_HOME=/usr/local/src/scala/scala-2.10.4
-  export PATH=$SCALA_HOME/bin:$PATH
-fi
+# alias
+alias gst="git status"
+alias dcu="docker-compose up -d && docker-compose logs -f"
 
-alias gst='git status'
+# PATH
+export PATH="$HOME/.local/bin:$HOME/.bin:$PATH"
