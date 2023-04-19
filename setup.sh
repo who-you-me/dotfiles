@@ -2,15 +2,19 @@
 
 set -eu
 
-DOTFILES_REPO="$HOME/dotfiles"
-if [ ! -e "$DOTFILES_REPO" ]; then
-  echo 'dotfilesリポジトリをcloneします'
-  git clone git@github.com:who-you-me/dotfiles.git "$DOTFILES_REPO"
-fi
-
 if ! which brew > /dev/null; then
   echo 'HomeBrewをインストールします'
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+if ! which git > /dev/null; then
+  brew install git
+fi
+
+DOTFILES_REPO="$HOME/dotfiles"
+if [ ! -e "$DOTFILES_REPO" ]; then
+  echo 'dotfilesリポジトリをcloneします'
+  git clone https://github.com/who-you-me/dotfiles.git "$DOTFILES_REPO"
 fi
 
 CONFIG_DIR="$HOME/.config"
@@ -62,6 +66,12 @@ if ! which gcloud > /dev/null; then
     --command-completion false \
     --path-update false \
     --install-python false
+fi
+
+# Zim
+if [ ! -e ~/.zim ]; then
+  echo 'Zimをインストールします'
+  curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 fi
 
 echo '設定ファイルへのシンボリックリンクを貼ります'
