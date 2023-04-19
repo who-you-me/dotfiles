@@ -16,7 +16,8 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # poetry
-export PATH="$HOME/poetry/bin:$PATH"
+export POETRY_HOME="$HOME/.local/poetry"
+export PATH="$HOME/.local/poetry/bin:$PATH"
 
 # rbenv
 eval "$(rbenv init - zsh)"
@@ -34,8 +35,8 @@ complete -o nospace -C $(which terraform) terraform
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Google Cloud
-. "$HOME/google-cloud-sdk/path.zsh.inc"
-. "$HOME/google-cloud-sdk/completion.zsh.inc"
+. "$HOME/.local/google-cloud-sdk/path.zsh.inc"
+. "$HOME/.local/google-cloud-sdk/completion.zsh.inc"
 
 # alias
 alias be="bundle exec"

@@ -31,19 +31,16 @@ ln -snf $(which pip3.9) /usr/local/bin/pip
 # Poetry
 if ! which poetry > /dev/null; then
   echo 'Poetryをインストールします'
-  curl -sSL https://install.python-poetry.org | POETRY_HOME="$HOME/poetry" python3 -
+  curl -sSL https://install.python-poetry.org | POETRY_HOME="$HOME/.local/poetry" python3 -
 
   mkdir -p ~/.zfunc
-  $HOME/poetry/bin/poetry completions zsh > ~/.zfunc/_poetry
+  $HOME/.local/poetry/bin/poetry completions zsh > ~/.zfunc/_poetry
 fi
 
 # Pythonのライブラリをインストール
 echo 'Pythonのライブラリをインストールします'
 ln -snf "$DOTFILES_REPO/requirements.txt" "$CONFIG_DIR/requirements.txt"
-python3.9 -m pip install \
-  --upgrade \
-  --upgrade-strategy=eager \
-  -r "$CONFIG_DIR/requirements.txt"
+python3.9 -m pip install -r "$CONFIG_DIR/requirements.txt"
 
 # Rust
 if ! which cargo > /dev/null; then
@@ -57,10 +54,10 @@ if ! which gcloud > /dev/null; then
 
   curl -sSf -o "$HOME/google-cloud-sdk.tar.gz" \
     https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-426.0.0-darwin-x86_64.tar.gz
-  tar -xzf "$HOME/google-cloud-sdk.tar.gz"
+  tar -xzf "$HOME/google-cloud-sdk.tar.gz" -C "$HOME/.local/"
   rm -f "$HOME/google-cloud-sdk.tar.gz"
 
-  sh "$HOME/google-cloud-sdk/install.sh" \
+  sh "$HOME/.local/google-cloud-sdk/install.sh" \
     --usage-reporting false \
     --command-completion false \
     --path-update false \
