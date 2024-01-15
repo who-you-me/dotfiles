@@ -26,11 +26,10 @@ echo '必要なパッケージをインストールします'
 ln -snf "$DOTFILES_REPO/Brewfile" "$CONFIG_DIR/Brewfile"
 brew bundle --file "$CONFIG_DIR/Brewfile"
 
-# HomeBrewでインストールしたpython3.9を python3 や python に設定
-ln -snf $(which python3.9) /usr/local/bin/python3
-ln -snf $(which python3.9) /usr/local/bin/python
-ln -snf $(which pip3.9) /usr/local/bin/pip3
-ln -snf $(which pip3.9) /usr/local/bin/pip
+# Pythonの最新版をインストール
+pyenv install 3.11
+pyenv rehash
+pyenv global 3.11
 
 # Poetry
 if ! which poetry > /dev/null; then
@@ -44,7 +43,8 @@ fi
 # Pythonのライブラリをインストール
 echo 'Pythonのライブラリをインストールします'
 ln -snf "$DOTFILES_REPO/requirements.txt" "$CONFIG_DIR/requirements.txt"
-python3.9 -m pip install -r "$CONFIG_DIR/requirements.txt"
+python3.11 -m pip install -r "$CONFIG_DIR/requirements.txt"
+pyenv rehash
 
 # Rust
 if ! which cargo > /dev/null; then
