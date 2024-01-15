@@ -72,6 +72,9 @@ eval "$(pyenv init -)"
 export POETRY_HOME="$HOME/.local/poetry"
 export PATH="$HOME/.local/poetry/bin:$PATH"
 
+# go
+export PATH="$HOME/go/bin:$PATH"
+
 # rbenv
 eval "$(rbenv init - zsh)"
 
@@ -79,7 +82,7 @@ eval "$(rbenv init - zsh)"
 eval "$(nodenv init -)"
 
 # Docker
-export PATH="$HOME/.docker/cli-plugins:$PATH"
+export PATH="$HOME/.docker/bin:$PATH"
 
 # Terraform
 autoload -U +X bashcompinit && bashcompinit
